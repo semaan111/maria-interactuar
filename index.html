@@ -3,17 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>María de Interactuar</title>
+  <title>María Interactuar</title>
+  <meta name="description" content="Prueba de María Interactuar" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    body {
+    :root {
+      --navy: #021442;
+      --cyan: #20A7D1;
+      --orange: #EA4E2F;
+      --bg: #f5f7fb;
+      --text-soft: #5f6c86;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      font-family: "Manrope", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      min-height: 100%;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(32,167,209,.10), transparent 18%),
+        radial-gradient(circle at 85% 80%, rgba(234,78,47,.08), transparent 18%),
+        linear-gradient(
+          90deg,
+          rgba(32,167,209,.06) 0%,
+          rgba(255,255,255,.75) 36%,
+          rgba(255,255,255,.9) 50%,
+          rgba(255,255,255,.75) 64%,
+          rgba(234,78,47,.05) 100%
+        );
+    }
+
+    .hero {
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(2,20,66,.03);
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 140px;
+      height: 140px;
+      left: 6%;
+      top: 8%;
+    }
+
+    .hero::after {
+      width: 170px;
+      height: 170px;
+      right: 8%;
+      bottom: 12%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      width: 100%;
+    }
+
+    .title-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+      text-align: left;
+    }
+
+    .title-line {
+      width: 6px;
+      height: 160px;
+      border-radius: 999px;
+      background: var(--orange);
+      flex: 0 0 auto;
+    }
+
+    .title-block {
+      line-height: .95;
+    }
+
+    .title-top {
+      font-size: clamp(54px, 8vw, 86px);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .title-bottom {
+      font-size: clamp(54px, 8vw, 86px);
+      font-weight: 500;
+      letter-spacing: -0.06em;
+      color: var(--navy);
+      margin: 4px 0 0;
+    }
+
+    .subtitle {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      color: var(--navy);
+      margin: 16px 0 6px;
+      letter-spacing: -0.04em;
+    }
+
+    .subcopy {
+      font-size: 22px;
+      color: var(--text-soft);
+      margin: 0 auto;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .bottom-note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #7c88a1;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 26px 16px 50px;
+      }
+
+      .title-wrap {
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .title-line {
+        width: 5px;
+        height: 104px;
+      }
+
+      .subcopy {
+        font-size: 17px;
+      }
+
+      .hero::before {
+        width: 100px;
+        height: 100px;
+      }
+
+      .hero::after {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="hero">
+    <div class="hero-content">
+      <div class="title-wrap">
+        <div class="title-line"></div>
+        <div class="title-block">
+          <h1 class="title-top">María</h1>
+          <div class="title-bottom">Interactuar</div>
+        </div>
+      </div>
+
+      <div class="subtitle">Una forma para conectar mejor</div>
+      <p class="subcopy">
+        Más agilidad, cercanía y orientación positiva en cada conversación.
+      </p>
+
+      <div class="bottom-note">
+        Prueba la experiencia desde el botón flotante
+      </div>
+    </div>
+  </main>
 
   <elevenlabs-convai agent-id="agent_1501kpvhvndjfddvgdkf9je5anrd"></elevenlabs-convai>
 
@@ -22,6 +208,5 @@
     async
     type="text/javascript">
   </script>
-
 </body>
 </html>
